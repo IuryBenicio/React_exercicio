@@ -1,0 +1,19 @@
+*{
+  text-align: center;
+}
+.inputPeso, .inputAltura{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#altura, #peso{
+  width: 90px;
+  height: 2em;
+}
+
+.buttons{
+  margin: 0 auto;
+  width: 180px;
+  display: flex;
+  justify-content: space-between;
+}
