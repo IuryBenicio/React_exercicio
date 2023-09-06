@@ -9,6 +9,8 @@
 #altura, #peso{
   width: 90px;
   height: 2em;
+  border: 1px solid black;
+  margin-right: 3px;
 }
 
 .buttons{
