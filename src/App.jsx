@@ -11,27 +11,33 @@ function App() {
     const alturaM = altura/100
     const altura2x = alturaM * alturaM
     const imc = peso / altura2x
-    return setCalculo(parseInt(imc))
+    return setCalculo(parseInt(imc.toFixed(1)))
   }
 
   const resultadoDoImc = () => {
     calculaImc();
+    
     console.log(calculo)
-    setTimeout(()=>{
-      if(calculo < 18.5){
-        return setImc('Você está a baixo do peso')
-      } if(calculo >= 18.5 || calculo <=24.9){
-        return setImc('você está com peso normal')
-      } if(calculo >= 30 || calculo <35){
-        return setImc('você está obeso')
-      } if(calculo > 35){
-        return setImc('você possui obesidade mórbida')
-      };
+    setTimeout(() => {
+      if (calculo < 18.5) {
+        setImc('Você está abaixo do peso')
+      } else if (calculo >= 18.5 && calculo <= 24.9) {
+        setImc('Você está com peso normal')
+      } else if (calculo >= 25 && calculo <= 29.9) {
+        setImc('Você está com sobrepeso')
+      } else if (calculo >= 30 && calculo <= 34.9) {
+        setImc('Você está com obesidade grau 1')
+      } else if (calculo >= 35 && calculo <= 39.9) {
+        setImc('Você está com obesidade grau 2')
+      } else {
+        setImc('Você possui obesidade mórbida')
+      }
     }, 1000)
 
   }
 
   const mensagemIMC = 'seu IMC é'
+
   return (
   <div className="container">
     <header>
