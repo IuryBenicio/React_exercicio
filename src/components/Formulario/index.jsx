@@ -1,10 +1,10 @@
 import { useState } from 'react'
 
 const Formulario = () => {
-    const [peso, setPeso] = useState(0)
-    const [altura, setAltura] = useState(0)
-    const [calculo, setCalculo] = useState(0)
-    const [resultadoImc, setImc] = useState("...")
+    const [peso, setPeso] = useState()
+    const [altura, setAltura] = useState()
+    const [calculo, setCalculo] = useState()
+    const [resultadoImc, setImc] = useState(NaN)
 
     const calculaImc = () => {
         const alturaM = altura/100
@@ -13,9 +13,14 @@ const Formulario = () => {
         return setCalculo(parseInt(imc.toFixed(1)))
     }
 
+    const mostraResultado = () =>{
+
+        console.log(calculo)
+
+    }
+
     const resultadoDoImc = () => {
         calculaImc();
-
         console.log(calculo)
         setTimeout(() => {
             if (calculo < 18.5) {
@@ -36,25 +41,28 @@ const Formulario = () => {
 
     const mensagemIMC = 'seu IMC é'
 
+
     return(
-        <form>
-            <div className="inputPeso">
-                <label htmlFor="peso" className='me-1'>Insira seu peso</label>
-                <input className='form-control' onChange={e => setPeso(parseInt(e.target.value))} id='peso' type="number"/>kg 
-            </div>
-            <div className="inputAltura mt-3">
-                <label htmlFor="altura" className='me-1'>Insira sua altura</label>
-                <input className='form-control' onChange={e => setAltura(parseInt(e.target.value))} type="number" id="altura"/>cm
-            </div>
+        <>
+            <form>
+                <div className="inputPeso">
+                    <label htmlFor="peso" className='me-1'>Insira seu peso</label>
+                    <input className='form-control' onChange={e => setPeso(parseInt(e.target.value))} id='peso' type="number"/>kg 
+                </div>
+                <div className="inputAltura mt-3">
+                    <label htmlFor="altura" className='me-1'>Insira sua altura</label>
+                    <input className='form-control' onChange={e => setAltura(parseInt(e.target.value))} type="number" id="altura"/>cm
+                </div>
+            </form>
             <div className="buttons mt-2">
-                <button onClick={resultadoDoImc} className='btn btn-success' type='button'> ENVIAR </button>
+                <button onClick={mostraResultado && resultadoDoImc} className='btn btn-success' type='button'> ENVIAR </button>
                 <button className='btn btn-secondary '> RESETAR </button>
             </div>
             <div className='resultado'>
                 {resultadoImc} <br />
                 {mensagemIMC} {calculo}
             </div>
-        </form>
+        </>
     )
 }
 

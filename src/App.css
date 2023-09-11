@@ -1,6 +1,14 @@
 *{
   text-align: center;
 }
+
+.container{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .inputPeso, .inputAltura{
   display: flex;
   align-items: center;
