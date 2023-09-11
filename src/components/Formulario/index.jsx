@@ -14,9 +14,7 @@ const Formulario = () => {
     }
 
     const mostraResultado = () =>{
-
         console.log(calculo)
-
     }
 
     const resultadoDoImc = () => {
@@ -59,7 +57,6 @@ const Formulario = () => {
                 <button className='btn btn-secondary '> RESETAR </button>
             </div>
             <div className='resultado'>
-                {resultadoImc} <br />
                 {mensagemIMC} {calculo}
             </div>
         </>
